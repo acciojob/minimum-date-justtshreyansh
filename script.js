@@ -1,5 +1,44 @@
 function minDate(dates) {
   //write you code here
+	let minYear = dates[0];
+	let[minyear,minmonth,minday] = minYear.split('/').map(Number);
+	for(let i=0;i<dates.length;i++){
+		let str = dates[i];
+		let[year,month,day] = str.split('/').map(Number);
+		//if the current year is smaller
+		if(year<minyear){
+			minyear = year;
+			minmonth  = month;
+			minday = day;
+		}
+		//if the current year is equal
+		else if(year===minyear){
+			//check for months if current year is less
+			if(month<minmonth){
+				minmonth= month;
+				minday  = day;
+			}
+				//current month and min are equal
+			else if(month===minmonth){
+				if(day<minday){
+					minday = day;
+				}
+				else{
+					minday = day;
+				}
+			}
+		}
+
+		
+		
+	}
+	let result = '';
+		result+=minyear;
+		result+='/';
+		result+=minmonth;
+		result+='/';
+		result+=minday;
+		return result;
 }
 
 // Do not change the code
